@@ -24,12 +24,14 @@ def funnyString(s):
 
 
 class TestFunnyString(unittest.TestCase):
-    def test_funny_string(self):
+    def test_funny_string_valid_cases(self):
         self.assertEqual(funnyString("acxz"), "Funny")
-        self.assertEqual(funnyString("bcxz"), "Not Funny")
         self.assertEqual(funnyString("abcdcba"), "Funny")
-        self.assertEqual(funnyString("hello"), "Not Funny")
-        self.assertEqual(funnyString("abc"), "Funny")
-        self.assertEqual(funnyString("a"), "Funny")  # Edge case: Single char
-        self.assertEqual(funnyString("ab"), "Funny")  # Edge case: Only two chars
+        self.assertEqual(funnyString("a"), "Funny")
+        self.assertEqual(funnyString("ab"), "Funny")
         self.assertEqual(funnyString("ba"), "Funny")
+
+    def test_funny_string_invalid_cases(self):
+        self.assertEqual(funnyString("abc"), "Not Funny")
+        self.assertEqual(funnyString("bcxz"), "Not Funny")
+        self.assertEqual(funnyString("hello"), "Not Funny")
